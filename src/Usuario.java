@@ -1,5 +1,5 @@
 public class Usuario {
-
+ // Pode se cadastrar com nome e e-mail.
     String nome;
     String email;
     String password;
