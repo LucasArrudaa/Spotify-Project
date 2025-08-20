@@ -13,6 +13,16 @@ public class Main {
         String password = input.nextLine();
         Usuario usuario = new Usuario(nome, email, password);
         System.out.println("Cadastro realizado com sucesso!");
+        input.close();
     }
+// menu do Spotify
+    public static void menu() {
+        System.out.println("1. Ver músicas");
+        System.out.println("2. Adicionar música");
+        System.out.println("3. Remover música");
+        System.out.println("4. Criar playlist");
+        System.out.println("5. Sair");
+    }
+
 
 }
