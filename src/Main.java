@@ -41,7 +41,18 @@ public class Main {
             System.out.print("Digite o nome da sua playlist: ");
             String nomePlaylist = input.nextLine();
             Playlist playlist = new Playlist(nomePlaylist);
+            while (playlist.getNomePlaylist().trim().isEmpty()) {
+                System.out.println("Nome da playlist inválido. Por favor, insira um nome válido:");
+                nomePlaylist = input.nextLine();
+                playlist.setNomePlaylist(nomePlaylist);
+            }
+            // genero da playlist
+            System.out.println("Agora, escolha o gênero da sua playlist:");
+            Genero genero = Genero.escolherGenero(input);
+            System.out.println("Gênero escolhido: " + genero.getDescricao() + " - " + genero.getCaracterista());
+
             System.out.println("Playlist '" + playlist.getNomePlaylist() + "' criada com sucesso!");
+
 
             // 🔄 LOOP DO MENU COM WHILE
             int opcao = 0;
