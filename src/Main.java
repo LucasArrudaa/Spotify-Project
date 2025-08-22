@@ -36,7 +36,6 @@ public class Main {
                                "\nEmail: " + usuario.getEmail());
 
             //
-
             System.out.println("Vamos criar sua playlist.");
             System.out.print("Digite o nome da sua playlist: ");
             String nomePlaylist = input.nextLine();
@@ -52,7 +51,6 @@ public class Main {
             System.out.println("Gênero escolhido: " + genero.getDescricao() + " - " + genero.getCaracterista());
 
             System.out.println("Playlist '" + playlist.getNomePlaylist() + "' criada com sucesso!");
-
 
             // 🔄 LOOP DO MENU COM WHILE
             int opcao = 0;
