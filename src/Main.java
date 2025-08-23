@@ -41,7 +41,6 @@ public class Main {
                 nomePlaylist = input.nextLine();
                 playlist.setNomePlaylist(nomePlaylist);
 
-
             }
             // genero da playlist
             System.out.println("\n Agora, escolha o gênero da sua playlist:");
@@ -101,8 +100,12 @@ public class Main {
                         break;
 
                     case 4: // ver minha playlist
-                        System.out.println("Sua playlist '" + playlist.getNomePlaylist() + "' contém as seguintes músicas:");
-                        // aqui deve listar as músicas na playlist do usuário
+                        if (playlist.getNomePlaylist() == null || playlist.getNomePlaylist().trim().isEmpty()) { // verifica se a playlist está vazia
+                            System.out.println("Você não criou uma playlist ainda.");
+                        } else {
+                            System.out.println("Sua playlist '" + playlist.getNomePlaylist() + "' contém as seguintes músicas:");
+                            Midias.verMusicasDisponiveis(genero.getDescricao()); // lista as músicas da playlist
+                        }
                         break;
 
                     case 5: // ver meus dados
