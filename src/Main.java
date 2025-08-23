@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -32,8 +34,8 @@ public class Main {
 
             Usuario usuario = new Usuario(nome, email, password);
             System.out.println("Cadastro realizado com sucesso!"+
-                               "\nNome: " + usuario.getNome() +
-                               "\nEmail: " + usuario.getEmail());
+                    "\nNome: " + usuario.getNome() +
+                    "\nEmail: " + usuario.getEmail());
 
             //
             System.out.println("Vamos criar sua playlist.");
@@ -65,7 +67,7 @@ public class Main {
                 opcao = input.nextInt();
                 input.nextLine(); // limpar o buffer
 
-while (opcao < 1 || opcao > 4) {
+                while (opcao < 1 || opcao > 4) {
                     System.out.println("Opção inválida. Por favor, escolha uma opção entre 1 e 4:");
                     opcao = input.nextInt();
                     input.nextLine(); // Limpar o buffer do scanner após a leitura do inteiro
@@ -73,23 +75,27 @@ while (opcao < 1 || opcao > 4) {
                 switch (opcao) {
                     case 1:
                         System.out.println("Músicas disponíveis na plataforma:");
+                        Midias midias = new Midias(genero.getDescricao());
+                        midias.verMusicasDisponiveis(genero.getDescricao());
+
                         // aqui deve listar as músicas disponíveis
                         break;
 
                     case 2:
                         System.out.println("Adicionar música a sua playlist:");
                         // aqui deve listar as músicas disponíveis
-                        System.out.print("Digite o nome da música que deseja adicionar: ");
-                        String nomeMusicaAdicionar = input.nextLine();
-                        System.out.println("Música '" + nomeMusicaAdicionar + "' adicionada à playlist '" + playlist.getNomePlaylist() + "' com sucesso!");
+                        System.out.println("Música adicionada à playlist '" + playlist.getNomePlaylist() + "' com sucesso!");
+                        Midias minhaPlaylist = new Midias(genero.getDescricao());
+                        minhaPlaylist.adicionarMusica(genero.getDescricao()); // digite uma música
+
                         break;
 
                     case 3:
                         System.out.println("Remover música da sua playlist:");
                         // aqui deve listar as músicas na playlist
-                        System.out.print("Digite o nome da música que deseja remover: ");
-                        String nomeMusicaRemover = input.nextLine();
-                        System.out.println("Música '" + nomeMusicaRemover + "' removida da playlist '" + playlist.getNomePlaylist() + "' com sucesso!");
+                        Midias removendoMusicaPlaylist = new Midias(genero.getDescricao());
+                        removendoMusicaPlaylist.removerMusica(genero.getDescricao());
+                        System.out.println("Música removida da playlist '" + playlist.getNomePlaylist() + "' com sucesso!");
                         break;
                     case 4:
                         System.out.println("Saindo do sistema. Até logo!");
@@ -99,7 +105,7 @@ while (opcao < 1 || opcao > 4) {
                         System.out.println("Opção inválida. Por favor, tente novamente.");
                 }
 
-    }
+            }
         } catch (Exception e) {
             System.out.println("Ocorreu um erro: " + e.getMessage());
         } finally {
