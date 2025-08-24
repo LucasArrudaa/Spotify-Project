@@ -1,3 +1,5 @@
+package entities;
+
 public class Catalogo {
 
     // ○ Armazena todas as mídias cadastradas.

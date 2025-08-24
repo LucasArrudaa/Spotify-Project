@@ -1,11 +1,13 @@
+package entities;
+
 public class Usuario {
  // Pode se cadastrar com nome e e-mail.
-    String nome;
-    String email;
-    String password;
-    String nomeplaylist;
+  private   String nome;
+    private  String email;
+    private  String password;
+    private   String nomeplaylist;
 
-//   public Usuario(String nome, String email, String password, String nomeplaylist) {
+//   public entities.Usuario(String nome, String email, String password, String nomeplaylist) {
     public Usuario(String nome, String email, String password, String nomeplaylist) {
         this.nome = nome;
         this.email = email;

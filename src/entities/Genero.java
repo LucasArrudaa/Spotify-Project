@@ -1,6 +1,6 @@
-//4. Gêneros musicais
+package entities;//4. Gêneros musicais
 //
-//○ Criar uma enumeração Genero com valores como: ROCK, POP, MPB, JAZZ, CLASSICA etc.
+//○ Criar uma enumeração entities.Genero com valores como: ROCK, POP, MPB, JAZZ, CLASSICA etc.
 
 import java.util.Scanner;
 
@@ -15,8 +15,8 @@ public enum Genero {
     SERTANEJO("Sertanejo", "Tradição e romance"),
     FORRO("Forró", "Ritmo nordestino com sanfona");
 
-    private String descricao;
-    private String caracterista;
+    private final String descricao;
+    private final String caracterista;
 
     Genero(String descricao, String caracteristica) {
         this.descricao = descricao;
@@ -27,9 +27,7 @@ public enum Genero {
         return descricao;
     }
 
-    public String getCaracterista() {
-        return caracterista;
-    }
+
 
     public static void exibirOpcoes(){
         int i = 1;

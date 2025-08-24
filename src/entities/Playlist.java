@@ -1,7 +1,8 @@
+package entities;
 public class Playlist {
-///○ Possui um nome e pertence a um único usuário.
-/// ○ Contém uma lista de músicas
-/// ○ Pode calcular a duração total da playlist.{
+    ///○ Possui um nome e pertence a um único usuário.
+    /// ○ Contém uma lista de músicas
+    /// ○ Pode calcular a duração total da playlist.{
 
     String nomePlaylist;
 

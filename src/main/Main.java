@@ -1,4 +1,7 @@
+package main;
+import entities.*; // importando todas as classes do pacote entities
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -42,27 +45,26 @@ public class Main {
                 playlist.setNomePlaylist(nomePlaylist);
 
             }
-            // genero da playlist
-            System.out.println("\n Agora, escolha o gênero da sua playlist:");
-            Genero genero = Genero.escolherGenero(input);
-            System.out.println("Gênero escolhido: " + genero.getDescricao() + " - " + genero.getCaracterista());
 
-            System.out.println("Playlist '" + playlist.getNomePlaylist() + "' criada com sucesso!");
+
+            System.out.println("entities.Playlist '" + playlist.getNomePlaylist() + "' criada com sucesso!");
 
             // feito o cadastro e criado o objeto usuario
             Usuario usuario = new Usuario(nome, email, password,nomePlaylist);
             System.out.println("Cadastro realizado com sucesso!"+
                     "\nNome: " + usuario.getNome() +
                     "\nEmail: " + usuario.getEmail());
+
+
             //  LOOP DO MENU COM WHILE
             int opcao = 0;
 
             while (opcao != 6) {
                 System.out.println("\nMenu do Spotify:");
-                System.out.println("1. Ver músicas disponíveis na plataforma");
-                System.out.println("2. Adicionar música à sua playlist");
-                System.out.println("3. Remover música da sua playlist");
-                System.out.println("4. Ver minha playlist");
+                System.out.println("1. Ver todas as músicas disponíveis na plataforma"); // falta numerar as posições das músicas
+                System.out.println("2. Adicionar música à sua playlist"); // ta quebrando pq n tem playlist criada / falta numerar as posições das músicas por genero
+                System.out.println("3. Remover música da sua playlist"); // ta quebrando pq n tem playlist criada / falta numerar as posições das músicas da playlist
+                System.out.println("4. Ver minha playlist"); // ta quebrando pq n tem playlist criada
                 System.out.println("5. Ver meus dados");
                 System.out.println("6. Sair");
                 System.out.print("Escolha uma opção: ");
@@ -76,58 +78,33 @@ public class Main {
                     input.nextLine();
                 }
                 switch (opcao) {
-                    case 1: // ver músicas disponíveis
-                        System.out.println("De qual genêro você gostaria de ver as músicas?");
-                        Genero escolha = Genero.escolherGenero(input);
-                        System.out.println("Gênero escolhido: " + escolha.getDescricao() + " - " + escolha.getCaracterista()); // lista o gênero escolhido
-                        System.out.println("Músicas disponíveis na plataforma no genero "+ escolha.getDescricao());
-                        Midias.verMusicasDisponiveis(genero.getDescricao());
+                    case 1:  // Listar Todas as músicas
+                        ListarTodasMusicas.listar();
                         break;
 
-                    case 2: // adicionar música
-                        System.out.println("Adicionar música a sua playlist:");
-                        // aqui deve listar as músicas disponíveis
-                        System.out.println("Música adicionada à playlist '" + playlist.getNomePlaylist() + "' com sucesso!");
-                        Midias.adicionarMusica(genero.getDescricao()); // digite uma música
-                        break;
-
-                    case 3: // remover música
-                        System.out.println("Remover música da sua playlist:");
-                        // aqui deve listar as músicas na playlist
-                        Midias removendoMusicaPlaylist = new Midias(genero.getDescricao());
-                        Midias.removerMusica(genero.getDescricao());
-                        System.out.println("Música removida da playlist '" + playlist.getNomePlaylist() + "' com sucesso!");
-                        break;
-
-                    case 4: // ver minha playlist
-                        if (playlist.getNomePlaylist() == null || playlist.getNomePlaylist().trim().isEmpty()) { // verifica se a playlist está vazia
-                            System.out.println("Você não criou uma playlist ainda.");
-                        } else {
-                            System.out.println("Sua playlist '" + playlist.getNomePlaylist() + "' contém as seguintes músicas:");
-                            Midias.verMusicasDisponiveis(genero.getDescricao()); // lista as músicas da playlist
-                        }
-                        break;
-
-                    case 5: // ver meus dados
-                        System.out.println("Seus dados:");
-                        System.out.println("Nome: " + usuario.getNome());
-                        System.out.println("Email: " + usuario.getEmail());
-                        System.out.println("Senha: " + usuario.getPassword());
-                        if (playlist.getNomePlaylist() == null || playlist.getNomePlaylist().trim().isEmpty()) { // verifica se a playlist está vazia
-                            System.out.println("Você não criou uma playlist ainda.");
-                        } else {
-                            System.out.println("Nome da playlist: " + playlist.getNomePlaylist());
-                        }
+                    case 2: // Adicionar Musicas
 
                         break;
-                    case 6: // sair
-                        System.out.println("SAINDO...");
+
+                    case 3: // Remover Musicas
+                        RemoverMusica.remover(playlist); // chama o método para remover músicas da playlist
+                        break;
+
+                    case 4: // Ver Minha Playlist
+                        VerMinhaPlaylist.verMinhaPlaylist(playlist); // chama o método para ver a playlist
+                        break;
+
+                    case 5: // Exibir Dados do Usuário
+                      ExibirDadosUsuario.mostrar(usuario, playlist);  // chama o método para exibir os dados do usuário
+                        break;
+
+                    case 6: // Saindo do sistema
+                      SaindoDoSistema.saindo();
                         break;
 
                     default: // caso a opção seja inválida
                         System.out.println("Opção inválida. Por favor, tente novamente.");
                 }
-
             }
         } catch (Exception e) { // captura qualquer erro inesperado
 

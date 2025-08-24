@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -72,31 +74,30 @@ public class Midias {
         this.genero = genero;
     }
 
-    // Ver músicas
+    // Ve todas as músicas
     public static void verMusicasDisponiveis(String genero) {
-        ArrayList<String> lista;
+        System.out.println("Músicas disponíveis no gênero " + genero + ":");
+        ArrayList<String> listaMusicas;
 
         switch (genero) {
-            case "Rock": lista = rock; break;
-            case "Pop": lista = pop; break;
-            case "Música Popular Brasileira": lista = mpb; break;
-            case "Jazz": lista = jazz; break;
-            case "Música Clássica": lista = classica; break;
-            case "Hip hop": lista = hiphop; break;
-            case "Eletrônica": lista = eletronica; break;
-            case "Sertanejo": lista = sertanejo; break;
-            case "Forró": lista = forro; break;
+            case "Rock": listaMusicas = rock; break;
+            case "Pop": listaMusicas = pop; break;
+            case "Música Popular Brasileira": listaMusicas = mpb; break;
+            case "Jazz": listaMusicas = jazz; break;
+            case "Música Clássica": listaMusicas = classica; break;
+            case "Hip hop": listaMusicas = hiphop; break;
+            case "Eletrônica": listaMusicas = eletronica; break;
+            case "Sertanejo": listaMusicas = sertanejo; break;
+            case "Forró": listaMusicas = forro; break;
             default:
                 System.out.println("Gênero não encontrado!");
                 return;
         }
 
-        System.out.println("Músicas disponíveis no gênero " + genero + ":");
-        for (String musica : lista) {
-            System.out.println(musica);
+        for (String musica : listaMusicas) {
+            System.out.println("- " + musica);
         }
     }
-
     // Adicionar música ao final do gênero
     public static void adicionarMusica(String genero) {
         Scanner input = new Scanner(System.in);
