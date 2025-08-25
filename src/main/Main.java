@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main() {
 
         try {
             // Inicio do sistema e cadastro do usuário
@@ -79,7 +79,7 @@ public class Main {
                 }
                 switch (opcao) {
                     case 1:  // Listar Todas as músicas
-                        ListarTodasMusicas.listar();
+                        ListarTodasAsMusicas.listar();
                         break;
 
                     case 2: // Adicionar Musicas
@@ -95,7 +95,7 @@ public class Main {
                         break;
 
                     case 5: // Exibir Dados do Usuário
-                      ExibirDadosUsuario.mostrar(usuario, playlist);  // chama o método para exibir os dados do usuário
+                      ExibirDados.mostrar(usuario, playlist);  // chama o método para exibir os dados do usuário
                         break;
 
                     case 6: // Saindo do sistema

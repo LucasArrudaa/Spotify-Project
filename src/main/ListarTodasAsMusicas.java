@@ -1,6 +1,6 @@
 package main;
 import entities.*;
- class ListarTodasMusicas {
+ class ListarTodasAsMusicas {
     public static void listar() {
         System.out.println("Músicas disponíveis no sistema:");
         Midias.verMusicasDisponiveis("Rock");

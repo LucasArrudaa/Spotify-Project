@@ -1,7 +1,7 @@
 package main;
 import entities.*;
 
-class ExibirDadosUsuario {
+class ExibirDados{
     public static void mostrar(Usuario usuario, Playlist playlist) {
         System.out.println("Dados Pessoais :");
         System.out.println("Nome do usuario : " + usuario.getNome());
